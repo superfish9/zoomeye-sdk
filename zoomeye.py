@@ -113,12 +113,30 @@ class ZoomeyeResult(object):
 		for i in range(0, self.result_len):
 			if self.matches[i]['site'] in site_list:
 				webinfo_list[self.matches[i]['site']] = {}
-				webinfo_list[self.matches[i]['site']]['db'] = self.matches[i]['db']
-				webinfo_list[self.matches[i]['site']]['domains'] = self.matches[i]['domains']
-				webinfo_list[self.matches[i]['site']]['language'] = self.matches[i]['language']
-				webinfo_list[self.matches[i]['site']]['ip'] = self.matches[i]['ip']
-				#webinfo_list[self.matches[i]['site']]['server'] = self.matches[i]['server']
-				webinfo_list[self.matches[i]['site']]['webapp'] = self.matches[i]['webapp']
+				if self.matches[i].has_key('db'):
+					webinfo_list[self.matches[i]['site']]['db'] = self.matches[i]['db']
+				else:
+					webinfo_list[self.matches[i]['site']]['db'] = ''
+				if self.matches[i].has_key('domains'):
+					webinfo_list[self.matches[i]['site']]['domains'] = self.matches[i]['domains']
+				else:
+					webinfo_list[self.matches[i]['site']]['domains'] = ''
+				if self.matches[i].has_key('language'):
+					webinfo_list[self.matches[i]['site']]['language'] = self.matches[i]['language']
+				else:
+					webinfo_list[self.matches[i]['site']]['language'] = ''
+				if self.matches[i].has_key('ip'):
+					webinfo_list[self.matches[i]['site']]['ip'] = self.matches[i]['ip']
+				else:
+					webinfo_list[self.matches[i]['site']]['ip'] = ''
+				if self.matches[i].has_key('server'):
+					webinfo_list[self.matches[i]['site']]['server'] = self.matches[i]['server']
+				else:
+					webinfo_list[self.matches[i]['site']]['server'] = ''
+				if self.matches[i].has_key('webapp'):
+					webinfo_list[self.matches[i]['site']]['webapp'] = self.matches[i]['webapp']
+				else:
+					webinfo_list[self.matches[i]['site']]['webapp'] = ''
 		return webinfo_list
 
 
